@@ -26,6 +26,11 @@ mongoose.connect(process.env.MONGO_URI, {
   .then(() => console.log('MongoDB connected successfully'))
   .catch(err => console.error('MongoDB connection failed:', err));
 
+// Root Route
+app.get('/', (req, res) => {
+  res.send('Welcome to the Live Question Project!');
+});
+
 // Routes
 const questionRoutes = require('./routes/questions');
 app.use('/api/questions', questionRoutes);
