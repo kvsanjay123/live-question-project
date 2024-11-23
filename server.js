@@ -9,18 +9,16 @@ const port = process.env.PORT || 5000;
 // Middleware
 app.use(express.json());
 
-// Add both Vercel frontend URLs here
+// Configure CORS
 const allowedOrigins = [
   'https://telangana-group3-key.vercel.app',
-  'https://telangana-group3.vercel.app', // Add any other possible Vercel subdomains if needed
+  'https://telangana-group3.vercel.app',
 ];
-
 const corsOptions = {
   origin: allowedOrigins,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add other HTTP methods if necessary
-  credentials: true, // Allow cookies if required
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true, // Allow cookies if needed
 };
-
 app.use(cors(corsOptions));
 
 // MongoDB connection
@@ -28,15 +26,25 @@ mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
   })
-  .then(() => console.log('MongoDB connected'))
-  .catch((err) => console.log(`MongoDB connection error: ${err}`));
+  .then(() => console.log('MongoDB connected successfully'))
+  .catch((err) => console.error(`MongoDB connection error: ${err}`));
 
-// Routes
-const questionsRouter = require('./routes/questions');
+// Example root route (for testing)
+app.get('/', (req, res) => {
+  res.send('Welcome to the Live Question Project!');
+});
+
+// API routes
+const questionsRouter = require('./routes/questions'); // Make sure the route exists
 app.use('/api/questions', questionsRouter);
 
 // Start the server
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
+
+// Configure server timeouts (for Render)
+server.keepAliveTimeout = 120000; // 120 seconds
+server.headersTimeout = 120000; // 120 seconds
