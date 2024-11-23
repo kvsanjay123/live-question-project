@@ -1,0 +1,19 @@
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore production build files
+build/
+
+# Ignore Vercel configuration
+.vercel/
+
+# Ignore log files
+*.log
+
+# Ignore environment files
+.env
+
+# Ignore other system files
+.DS_Store
+Thumbs.db
+
