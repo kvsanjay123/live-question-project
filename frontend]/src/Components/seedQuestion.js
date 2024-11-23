@@ -10,7 +10,7 @@ function SeedQuestion() {
     const fetchQuestions = async () => {
       try {
         const response = await axios.get(
-          "https://live-questions-project.onrender.com/api/questions"
+          "https://live-question-project.onrender.com/api/questions"
         );
         setQuestions(response.data);
       } catch (err) {
