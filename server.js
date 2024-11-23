@@ -13,9 +13,15 @@ app.use(express.json());
 const allowedOrigins = [
   'https://telangana-group3-key.vercel.app',
   'https://telangana-group3.vercel.app',
+  'https://localhost:3000',//for loacal hosting
 ];
 const corsOptions = {
-  origin: allowedOrigins,
+  origin: (origin,callback)=> {
+    if(!origin || allowedOrigins.includes(origin))
+    {
+      callback(null,true);
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true, // Allow cookies if needed
 };
