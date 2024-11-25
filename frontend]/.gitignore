@@ -2,7 +2,7 @@
 node_modules/
 
 # Ignore production build files
-build/
+#build/
 
 # Ignore Vercel configuration
 .vercel/
