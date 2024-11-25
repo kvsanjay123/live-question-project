@@ -1,75 +1,63 @@
-.app-container {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #1e90ff, #87cefa);
-    min-height: 100vh;
-    padding: 20px;
-    color: #fff;
-  }
-  
-  .header {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .questions-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .question-card {
-    background: #ffffff;
-    color: #000;
-    border-radius: 10px;
-    padding: 15px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-  }
-  
-  .question-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .question-text {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-  }
-  
-  .options-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .option-button {
-    background: #1e90ff;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .option-button:hover {
-    background: #005cbf;
-  }
-  
-  .show-answer-button {
-    background: #28a745;
-    color: #fff;
-    padding: 10px;
-    margin-top: 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .show-answer-button:hover {
-    background: #196f3d;
-  }
-  
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+.header {
+  font-size: 2rem;
+  color: #0044cc;
+  margin-bottom: 20px;
+}
+
+.questions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.question-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.options {
+  margin-bottom: 20px;
+}
+
+.option-btn {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.option-btn:hover {
+  background-color: #0056b3;
+}
+
+.show-answer-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.show-answer-btn:hover {
+  background-color: #1e7e34;
+}
+
+.answer-section {
+  margin-top: 10px;
+  text-align: left;
+  font-size: 1rem;
+  color: #333;
+}
