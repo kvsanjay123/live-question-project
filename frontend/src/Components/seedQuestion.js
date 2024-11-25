@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./SeedQuestion.css"; // Add CSS for styling
+import "./seedQuestion.css"; // Add CSS for styling
 
 const SeedQuestion = () => {
   const [questions, setQuestions] = useState([]);
