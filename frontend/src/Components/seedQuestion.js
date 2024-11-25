@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "../App.css";
-
+import "./SeedQuestion.css"; // Add CSS for styling
 
 const SeedQuestion = () => {
   const [questions, setQuestions] = useState([]);
@@ -11,18 +10,16 @@ const SeedQuestion = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        // Use environment variable for API URL or fallback
         const API_BASE_URL =
           process.env.REACT_APP_API_URL || "https://live-question-project.onrender.com";
 
         const response = await axios.get(`${API_BASE_URL}/api/questions`);
         const data = response.data;
 
-        // Validate response data
         if (Array.isArray(data)) {
-          setQuestions(data); // Assuming `data` is an array of questions
+          setQuestions(data);
         } else if (data.questions && Array.isArray(data.questions)) {
-          setQuestions(data.questions); // Handle `questions` key in the response
+          setQuestions(data.questions);
         } else {
           throw new Error("Invalid data format from API");
         }
@@ -46,15 +43,23 @@ const SeedQuestion = () => {
   }
 
   return (
-    <div className="container">
+    <div className="app-container">
       <h1 className="header">Telangana Group 3 Questions</h1>
-      <ul className="question-list">
+      <div className="questions-container">
         {questions.map((question, index) => (
-          <li key={index} className="question-item">
-            {question.questionText}
-          </li>
+          <div key={index} className="question-card">
+            <h2 className="question-text">{question.questionText}</h2>
+            <div className="options-container">
+              {question.options.map((option, idx) => (
+                <button key={idx} className="option-button">
+                  {option}
+                </button>
+              ))}
+            </div>
+            <button className="show-answer-button">Show Answer</button>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
