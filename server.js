@@ -11,44 +11,51 @@ app.use(express.json());
 
 // Configure CORS
 const allowedOrigins = [
-  'https://telangana-group3-key.vercel.app',
-  'https://telangana-group3.vercel.app',
-  'https://localhost:3000',//for loacal hosting
+    'https://telangana-group3-key.onrender.com', // Render frontend URL
+    'http://localhost:3000' // For local testing
 ];
+
 const corsOptions = {
-  origin: (origin,callback)=> {
-    if(!origin || allowedOrigins.includes(origin))
-    {
-      callback(null,true);
-    }
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true, // Allow cookies if needed
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true // Allow cookies if needed
 };
 app.use(cors(corsOptions));
 
 // MongoDB connection
 mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
-  })
-  .then(() => console.log('MongoDB connected successfully'))
-  .catch((err) => console.error(`MongoDB connection error: ${err}`));
+    .connect(process.env.MONGO_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        serverSelectionTimeoutMS: 30000 // Increase timeout to 30 seconds
+    })
+    .then(() => console.log('MongoDB connected successfully'))
+    .catch((err) => console.error(`MongoDB connection error: ${err}`));
 
 // Example root route (for testing)
 app.get('/', (req, res) => {
-  res.send('Welcome to the Live Question Project!');
+    res.send('Welcome to the Live Question Project!');
 });
 
 // API routes
-const questionsRouter = require('./routes/questions'); // Make sure the route exists
+const questionsRouter = require('./routes/questions'); // Ensure the route exists
 app.use('/api/questions', questionsRouter);
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send({ error: 'Something went wrong!' });
+});
 
 // Start the server
 const server = app.listen(port, () => {
-  console.log(`Server is running on port: ${port}`);
+    console.log(`Server is running on port: ${port}`);
 });
 
 // Configure server timeouts (for Render)
