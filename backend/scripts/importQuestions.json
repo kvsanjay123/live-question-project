@@ -1,44 +1,52 @@
 [
     {
-      "questionText": "Which of the following was originally called 'Jilu Khana'?",
-      "options": ["Char Kaman", "Charminar", "Darush-Shifa", "Mecca Masjid"],
-      "correctAnswer": "Charminar",
-      "explanation": "Charminar was historically referred to as 'Jilu Khana'.",
-      "difficulty": "Medium"
+        "questionText": "Which of the following was originally called 'Jilu Khana'?",
+        "options": [
+            "Char Kaman",
+            "Charminar",
+            "Darush-Shifa",
+            "Mecca Masjid"
+        ],
+        "correctAnswer": "Charminar",
+        "explanation": "Charminar was historically referred to as 'Jilu Khana'.",
+        "difficulty": "Medium"
     },
     {
-      "questionText": "Consider the following statements with regard to the 1952 Mulki agitation:",
-      "options": [
-        "By 3rd September 1952, the Mulki agitation was intensified.",
-        "The students at City College clashed with the police.",
-        "Police firing on the students in Hyderabad resulted in the death of some students.",
-        "Owning moral responsibility for the firing, the Chief Minister offered to resign from the post."
-      ],
-      "correctAnswer": "A, B and C",
-      "explanation": "The events described in A, B, and C accurately depict the escalation of the Mulki agitation.",
-      "difficulty": "Hard"
+        "questionText": "Consider the following statements with regard to the 1952 Mulki agitation:",
+        "options": [
+            "By 3rd September 1952, the Mulki agitation was intensified.",
+            "The students at City College clashed with the police.",
+            "Police firing on the students in Hyderabad resulted in the death of some students.",
+            "Owning moral responsibility for the firing, the Chief Minister offered to resign from the post."
+        ],
+        "correctAnswer": "A, B and C",
+        "explanation": "The events described in A, B, and C accurately depict the escalation of the Mulki agitation.",
+        "difficulty": "Hard"
     },
     {
-      "questionText": "Who among the following was the first British citizen to join the Nizam Military?",
-      "options": ["William Palmer", "Henry Russell", "George Lamb", "William Karri"],
-      "correctAnswer": "Henry Russell",
-      "explanation": "Henry Russell was a key British figure associated with the Nizam's military.",
-      "difficulty": "Easy"
+        "questionText": "Who among the following was the first British citizen to join the Nizam Military?",
+        "options": [
+            "William Palmer",
+            "Henry Russell",
+            "George Lamb",
+            "William Karri"
+        ],
+        "correctAnswer": "Henry Russell",
+        "explanation": "Henry Russell was a key British figure associated with the Nizam's military.",
+        "difficulty": "Easy"
     },
     {
-      "questionText": "Arrange the following in a chronological order:",
-      "options": [
-        "Formation of Osmania Graduates Association",
-        "First meeting of Andhra Jana Kendra Sangham",
-        "First meeting of Andhra Maha Sabha",
-        "Establishment of Mulki League"
-      ],
-      "correctAnswer": "B, D, C, A",
-      "explanation": "The chronological order reflects the historical progression of the associations and movements.",
-      "difficulty": "Hard"
-    }
-  ]
-  [
+        "questionText": "Arrange the following in a chronological order:",
+        "options": [
+            "Formation of Osmania Graduates Association",
+            "First meeting of Andhra Jana Kendra Sangham",
+            "First meeting of Andhra Maha Sabha",
+            "Establishment of Mulki League"
+        ],
+        "correctAnswer": "B, D, C, A",
+        "explanation": "The chronological order reflects the historical progression of the associations and movements.",
+        "difficulty": "Hard"
+    },
     {
         "questionText": "Consider the following statements:",
         "options": [
@@ -96,9 +104,7 @@
         "correctAnswer": "A only",
         "explanation": "Recherla Rudra was significant in the history of the Velama rulers, as per statement A.",
         "difficulty": "Medium"
-    }
-]
-[
+    },
     {
         "questionText": "Consider the following statements:",
         "options": [
@@ -156,9 +162,7 @@
         "correctAnswer": "A only",
         "explanation": "Recherla Rudra was a significant historical figure as mentioned in statement A.",
         "difficulty": "Medium"
-    }
-]
-[
+    },
     {
         "questionText": "Consider the following statements with regard to Satavahanas:",
         "options": [
@@ -192,9 +196,7 @@
         "correctAnswer": "C, D, A, B",
         "explanation": "This is the correct chronological order based on historical records of the Ikshvaku rulers.",
         "difficulty": "Hard"
-    }
-]
-[
+    },
     {
         "questionText": "Consider the following statements with regard to Satavahanas:",
         "options": [
@@ -228,9 +230,7 @@
         "correctAnswer": "C, D, A, B",
         "explanation": "This is the correct chronological order based on historical records of the Ikshvaku rulers.",
         "difficulty": "Hard"
-    }
-]
-[
+    },
     {
         "questionText": "Consider the following statements:\nA. The Buddhapadas were the most popular objects of worship.\nB. Nine Buddha statues were discovered in Bairagulagutta.\nC. Nelakondapalli stupa is located in Warangal district.\nD. Buddhist stupa was discovered at Sanigaram.",
         "options": [
@@ -268,4 +268,3 @@
         "difficulty": "Medium"
     }
 ]
-  
