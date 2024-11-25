@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./seedQuestion.css"; // Add CSS for styling
+import "./SeedQuestion.css"; // Ensure this file path is correct
 
 const SeedQuestion = () => {
   const [questions, setQuestions] = useState([]);
@@ -12,10 +12,10 @@ const SeedQuestion = () => {
       try {
         const API_BASE_URL =
           process.env.REACT_APP_API_URL || "https://live-question-project.onrender.com";
-
         const response = await axios.get(`${API_BASE_URL}/api/questions`);
         const data = response.data;
 
+        // Validate response data
         if (Array.isArray(data)) {
           setQuestions(data);
         } else if (data.questions && Array.isArray(data.questions)) {
@@ -43,23 +43,48 @@ const SeedQuestion = () => {
   }
 
   return (
-    <div className="app-container">
+    <div className="container">
       <h1 className="header">Telangana Group 3 Questions</h1>
-      <div className="questions-container">
+      <div className="questions-grid">
         {questions.map((question, index) => (
-          <div key={index} className="question-card">
-            <h2 className="question-text">{question.questionText}</h2>
-            <div className="options-container">
-              {question.options.map((option, idx) => (
-                <button key={idx} className="option-button">
-                  {option}
-                </button>
-              ))}
-            </div>
-            <button className="show-answer-button">Show Answer</button>
-          </div>
+          <QuestionCard key={index} question={question} />
         ))}
       </div>
+    </div>
+  );
+};
+
+const QuestionCard = ({ question }) => {
+  const [showAnswer, setShowAnswer] = useState(false);
+
+  return (
+    <div className="question-card">
+      <h3>{question.questionText}</h3>
+      <div className="options">
+        {question.options.map((option, index) => (
+          <button key={index} className="option-btn">
+            {option}
+          </button>
+        ))}
+      </div>
+      <button
+        className="show-answer-btn"
+        onClick={() => setShowAnswer(!showAnswer)}
+      >
+        {showAnswer ? "Hide Answer" : "Show Answer"}
+      </button>
+      {showAnswer && (
+        <div className="answer-section">
+          <p>
+            <strong>Correct Answer:</strong> {question.correctAnswer}
+          </p>
+          {question.difficulty && (
+            <p>
+              <strong>Difficulty:</strong> {question.difficulty}
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 };
