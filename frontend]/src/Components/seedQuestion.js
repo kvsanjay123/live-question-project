@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "../App.css"; // For additional CSS styles
 import axios from "axios";
+import "../App.css"; // Ensure your CSS file path is correct
 
 function SeedQuestion() {
   const [questions, setQuestions] = useState([]); // State to hold the questions
@@ -10,13 +10,15 @@ function SeedQuestion() {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await axios.get(
-          "https://live-question-project.onrender.com/api/questions"
-        );
-        console.log("Fetched Questions:", response.data); // Log the API response
+        const response = await axios.get("https://live-question-project.onrender.com/api/questions");
+        
+        // Debugging logs
+        console.log("Fetched Questions:", response.data);
+        console.log("Fetched Data Structure:", Array.isArray(response.data) ? "Array" : typeof response.data);
+
         setQuestions(response.data); // Set the questions in state
       } catch (err) {
-        console.error("Error fetching questions:", err); // Log the error
+        console.error("Error fetching questions:", err.response ? err.response.status : "No Response");
         setError("Unable to load questions. Please try again later."); // Set error message
       }
     };
@@ -54,9 +56,7 @@ function SeedQuestion() {
       <h1 className="header">Extravagant Question List</h1>
       {questions.map((question, index) => (
         <div key={question._id} className="question-card">
-          <h5>
-            {index + 1}. {question.questionText}
-          </h5>
+          <h5>{index + 1}. {question.questionText}</h5>
           <ul>
             {question.options.map((option, i) => (
               <li key={i}>{option}</li>
@@ -64,10 +64,14 @@ function SeedQuestion() {
           </ul>
           {/* Optional fields for explanation and difficulty */}
           {question.difficulty && (
-            <p><strong>Difficulty:</strong> {question.difficulty}</p>
+            <p>
+              <strong>Difficulty:</strong> {question.difficulty}
+            </p>
           )}
           {question.explanation && (
-            <p><strong>Explanation:</strong> {question.explanation}</p>
+            <p>
+              <strong>Explanation:</strong> {question.explanation}
+            </p>
           )}
           <button
             className="show-answer-button"
