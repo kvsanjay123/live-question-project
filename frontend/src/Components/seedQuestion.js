@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./SeedQuestion.css"; // Ensure this file path is correct
+import "./seedQuestion.css"; // Ensure this file path is correct
 
 const SeedQuestion = () => {
   const [questions, setQuestions] = useState([]);
